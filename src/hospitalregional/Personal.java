@@ -157,4 +157,22 @@ public class Personal {
             System.out.println("El tipo de personal no puede estar vacio");
         }
     }  
+    
+    public static String generarCodigo() {
+        numcorrelativo++;
+        return "P" + String.format("%04d", numcorrelativo);
+    }
+    
+    public void verDatos(){
+        System.out.println("PERSONAL: COD: " + this.codigoInterno
+            + " | TIPODOC: "  + this.tipoDocumento
+            + " | NUMDOC: "   + this.numeroDocumento
+            + " | PATERNO: "  + this.apellidoPaterno
+            + " | MATERNO: "  + this.apellidoMaterno
+            + " | NOMBRES: "  + this.nombres
+            + " | CEL: "      + this.celular
+            + " | CORREO: "    + this.correo
+            + " | TIPO: "     + this.tipoPersonal
+        );
+    }  
 }
