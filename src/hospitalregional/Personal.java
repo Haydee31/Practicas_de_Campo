@@ -30,14 +30,6 @@ public class Personal {
         setTipoPersonal(tipoPersonal);
     }
 
-    public static int getNumcorrelativo() {
-        return numcorrelativo;
-    }
-
-    public static void setNumcorrelativo(int numcorrelativo) {
-        Personal.numcorrelativo = numcorrelativo;
-    }
-
     public String getCodigoInterno() {
         return codigoInterno;
     }
