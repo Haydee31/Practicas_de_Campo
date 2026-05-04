@@ -18,7 +18,7 @@ public class Controlador_Hospital {
         Lista.add(p);
     }
     
-    public void MostrarPersonal()
+    public void ListarPersonal()
     {
         System.out.println("========== LISTA DE PERSONAL DEL HOSPITAL ==========");
         for (Personal per:Lista) {
