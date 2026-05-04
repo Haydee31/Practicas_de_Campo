@@ -50,16 +50,43 @@ public class Personal {
         return tipoDocumento;
     }
 
-    public void setTipoDocumento(String tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
+    public void setTipoDocumento(String tipoDocumento) 
+    {
+        try {
+            if (tipoDocumento.equalsIgnoreCase("DNI") || tipoDocumento.equalsIgnoreCase("Carnet de Extranjeria")) {
+                this.tipoDocumento = tipoDocumento;
+            } else {
+                System.out.println("Tipo de documento invalido, Use: DNI o Carnet de Extranjeria.");
+            }
+        } catch (NullPointerException e) {
+            System.out.println("El tipo de documento no puede estar vacio.");
+        }
     }
 
     public String getNumeroDocumento() {
         return numeroDocumento;
     }
 
-    public void setNumeroDocumento(String numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
+    public void setNumeroDocumento(String numeroDocumento) 
+    {
+        try {
+            if (this.tipoDocumento.equalsIgnoreCase("DNI")) {
+                if (numeroDocumento.length() == 8) {
+                    this.numeroDocumento = numeroDocumento;
+                } else {
+                    System.out.println("El DNI debe tener 8 digitos");
+                }
+            } else if (this.tipoDocumento.equalsIgnoreCase("Carnet de Extranjeria")) {
+                if (numeroDocumento.length() == 9) {
+                    this.numeroDocumento = numeroDocumento;
+                } else {
+                    System.out.println("El Carnet de Extranjeria debe tener 9 digitos");
+                }
+            }
+        } catch (NullPointerException e) 
+        {
+            System.out.println("El numero de documento no puede estar vacio");
+        }
     }
 
     public String getApellidoPaterno() {
@@ -90,8 +117,20 @@ public class Personal {
         return celular;
     }
 
-    public void setCelular(String celular) {
-        this.celular = celular;
+    public void setCelular(String celular) 
+    {
+        try {
+            if (!celular.matches("\\d+")) {
+                System.out.println("El celular solo debe contener numeros");
+            } else if (celular.length() != 9) {
+                System.out.println("El celular debe tener 9 digitos.");
+            } else {
+                this.celular = celular;
+            }
+        } catch (NullPointerException e) 
+        {
+            System.out.println("El celular no puede estar vacio");
+        }
     }
 
     public String getCorreo() {
@@ -106,10 +145,16 @@ public class Personal {
         return tipoPersonal;
     }
 
-    public void setTipoPersonal(String tipoPersonal) {
-        this.tipoPersonal = tipoPersonal;
-    }
-    
-    
-    
+    public void setTipoPersonal(String tipoPersonal) 
+    {
+        try {
+            if (tipoPersonal.equalsIgnoreCase("MEDICO") || tipoPersonal.equalsIgnoreCase("ENFERMERO") || tipoPersonal.equalsIgnoreCase("ADMINISTRATIVO")) {
+                this.tipoPersonal = tipoPersonal;
+            } else {
+                System.out.println("Tipo de personal invalido Use: MEDICO, ENFERMERO o ADMINISTRATIVO");
+            }
+        } catch (NullPointerException e) {
+            System.out.println("El tipo de personal no puede estar vacio");
+        }
+    }  
 }
