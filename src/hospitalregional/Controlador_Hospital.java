@@ -11,7 +11,20 @@ import java.util.ArrayList;
  * @author zakkc
  */
 public class Controlador_Hospital {
+    ArrayList<Personal> Lista = new ArrayList();
     
+    public void AgregarPersonal(Personal p)
+    {
+        Lista.add(p);
+    }
+    
+    public void MostrarPersonal()
+    {
+        System.out.println("========== LISTA DE PERSONAL DEL HOSPITAL ==========");
+        for (Personal per:Lista) {
+            per.verDatos();
+        }
+    }
     
     
     
