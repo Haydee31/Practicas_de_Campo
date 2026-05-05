@@ -45,10 +45,10 @@ public class Personal {
     public void setTipoDocumento(String tipoDocumento) 
     {
         try {
-            if (tipoDocumento.equalsIgnoreCase("DNI") || tipoDocumento.equalsIgnoreCase("Carnet de Extranjeria")) {
+            if (tipoDocumento.equalsIgnoreCase("DNI") || tipoDocumento.equalsIgnoreCase("CE")) {
                 this.tipoDocumento = tipoDocumento;
             } else {
-                System.out.println("Tipo de documento invalido, Use: DNI o Carnet de Extranjeria.");
+                System.out.println("Tipo de documento invalido, Use: DNI o CE(Carnet de Extranjería)");
             }
         } catch (NullPointerException e) {
             System.out.println("El tipo de documento no puede estar vacio.");
@@ -68,7 +68,7 @@ public class Personal {
                 } else {
                     System.out.println("El DNI debe tener 8 digitos");
                 }
-            } else if (this.tipoDocumento.equalsIgnoreCase("Carnet de Extranjeria")) {
+            } else if (this.tipoDocumento.equalsIgnoreCase("CE")) {
                 if (numeroDocumento.length() == 9) {
                     this.numeroDocumento = numeroDocumento;
                 } else {
@@ -86,7 +86,19 @@ public class Personal {
     }
 
     public void setApellidoPaterno(String apellidoPaterno) {
-        this.apellidoPaterno = apellidoPaterno;
+        
+        if(apellidoPaterno == null || apellidoPaterno.trim().isEmpty())
+        {
+            System.out.println("No puede ser un dato en blanco");
+        }
+        else if(!apellidoPaterno.trim().matches("[a-zA-]+"))
+        {
+            System.out.println("solo se permiten letras");
+        }
+        else
+        {
+            this.apellidoPaterno = apellidoPaterno;
+        }
     }
 
     public String getApellidoMaterno() {
@@ -94,7 +106,18 @@ public class Personal {
     }
 
     public void setApellidoMaterno(String apellidoMaterno) {
-        this.apellidoMaterno = apellidoMaterno;
+        if(apellidoMaterno == null || apellidoMaterno.trim().isEmpty())
+        {
+            System.out.println("No puede ser un dato en blanco");
+        }
+        else if(!apellidoMaterno.trim().matches("[a-zA-]+"))
+        {
+            System.out.println("solo se permiten letras");
+        }
+        else
+        {
+            this.apellidoMaterno = apellidoMaterno;
+        }
     }
 
     public String getNombres() {
@@ -102,7 +125,18 @@ public class Personal {
     }
 
     public void setNombres(String nombres) {
-        this.nombres = nombres;
+        if(nombres == null || nombres.trim().isEmpty())
+        {
+            System.out.println("No puede ser un dato en blanco");
+        }
+        else if(!nombres.trim().matches("[a-zA-]+"))
+        {
+            System.out.println("solo se permiten letras");
+        }
+        else
+        {
+            this.nombres = nombres;
+        }
     }
 
     public String getCelular() {

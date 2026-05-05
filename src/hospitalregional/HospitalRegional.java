@@ -26,7 +26,7 @@ public class HospitalRegional {
  
             Personal p = new Personal();
             while (p.getTipoDocumento() == null) {
-                System.out.println("Ingrese el tipo de documento:");
+                System.out.println("Ingrese el tipo de documento (DNI / CE(Carnet de Extranjeria)");
                 p.setTipoDocumento(sc.nextLine());
             }
             while (p.getNumeroDocumento() == null) {
@@ -37,16 +37,26 @@ public class HospitalRegional {
                 }
                 p.setNumeroDocumento(sc.nextLine());
             }
- 
+            while(true)
+            {
             System.out.println("Ingrese el Apellido Paterno:");
             p.setApellidoPaterno(sc.nextLine());
- 
+            if(p.getApellidoPaterno() != null) break;
+            }
+            
+            while(true)
+            {
             System.out.println("Ingrese el Apellido Materno:");
             p.setApellidoMaterno(sc.nextLine());
- 
+            if(p.getApellidoMaterno()!= null)break;
+            }
+            
+            while(true)
+            {
             System.out.println("Ingrese los Nombres:");
             p.setNombres(sc.nextLine());
- 
+            if(p.getNombres()!= null) break;
+            }
             while (p.getCelular() == null) {
                 System.out.println("Ingrese el numero de celular:");
                 p.setCelular(sc.nextLine());
